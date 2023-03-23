@@ -35,8 +35,40 @@ For more examples and ideas, visit:
  https://docs.docker.com/get-started/
 
 
+Starting Docker Desktop from prompt:
+    open -a Docker
+
+ -it - interactive mode (if not set, it will just run the image in background and come out)
+
+To set entry point
+    --entrypoint=bash
+    it sets entrypoint as bash
+
+
 Creating a docker file
-	
+-
+    Create a file with the name 'Dockerfile' or any name. 'Dockerfile' is default name.
+    Various docker commands can be used to write one. For example:
+        FROM python:3.9 - From the image 
+
+        RUN pip install pandas - run this command
+
+        ENTRYPOINT ["bash"]  - set this interactive endpoint
 Building docker
+-
+    docker build -t test:pandas .
+     here,
+        test - docker image name
+        pandas - tag name
+        . - place where it is stored
+
+    If you face any issue and wanted to see more info, run:
+        DOCKER_BUILDKIT=0 docker build -t test:pandas .
+    
 
 Running the docker
+    docker run -it test:pandas
+
+Sending parameters to docker
+    docker run -t test:pandas arg2
+    The entry point in the dockerfile should be capable to handle the argument
