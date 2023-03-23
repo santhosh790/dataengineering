@@ -57,18 +57,17 @@ Creating a docker file
 Building docker
 -
     docker build -t test:pandas .
-     here,
-        test - docker image name
-        pandas - tag name
-        . - place where it is stored
+here,
+  test - docker image name
+  pandas - tag name
+  . - place where it is stored
 
-    If you face any issue and wanted to see more info, run:
+If you face any issue and wanted to see more info, run:
         DOCKER_BUILDKIT=0 docker build -t test:pandas .
     
-
-Running the docker
+Running the docker:
     docker run -it test:pandas
 
 Sending parameters to docker
     docker run -t test:pandas arg2
-    The entry point in the dockerfile should be capable to handle the argument
+The entry point in the dockerfile should be capable to handle the argument
