@@ -51,8 +51,8 @@ To set entry point
 
 Creating a docker file
 -
-    Create a file with the name 'Dockerfile' or any name. 'Dockerfile' is default name.
-    Various docker commands can be used to write one. For example:
+Create a file with the name 'Dockerfile' or any name. 'Dockerfile' is default name.
+Various docker commands can be used to write one. For example:
     	FROM python:3.9 - From the image 
 
         RUN pip install pandas - run this command
@@ -67,7 +67,7 @@ here,
   . - place where it is stored
 
 If you face any issue and wanted to see more info, run:
-        DOCKER_BUILDKIT=0 docker build -t test:pandas .
+	DOCKER_BUILDKIT=0 docker build -t test:pandas .
     
 Running the docker:
 	docker run -it test:pandas
