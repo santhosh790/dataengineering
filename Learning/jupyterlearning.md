@@ -8,6 +8,16 @@ starting it from console:
 
     jupyter notebook
 
+Understand the Python executable [Kernal] at which the jupyter notebook is running:
+
+        import sys
+        sys.executable
+
+Add Kernel in existing python:
+
+pip install ipykernel
+
+python -m ipykernel install --user --name myenv --display-name "Python (myenv)"
 
 
 docker run -it \

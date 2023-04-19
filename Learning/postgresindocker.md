@@ -41,6 +41,11 @@ it can prompt for password.
 In current case, it is now accessing the postgres database that got created from the image.
 // Repeat from dockerlearning page
 
+pgcli commands:
+https://www.pgcli.com/commands
+
+
+
 Issue encountered and solved:
 1. ImportError "no pq wrapper available" when installing pgcli.
     Had to install another package called *pip install "psycopg[binary,pool]"* to solve this.
@@ -49,3 +54,34 @@ Issue encountered and solved:
     Just goto *postgresql.conf* and edit the port in the file. This solves the issue.
 
 
+pgAdmin
+_____
+
+it is a webbased GUI tool for PostgreSql.
+
+Running pgAdmin container using docker hub - https://hub.docker.com/r/dpage/pgadmin4/
+
+Get docker image of pgAdmin container
+
+    docker pull dpage/pgadmin4
+
+Running it in docker:
+
+    docker run -it \
+        -e PGADMIN_DEFAULT_EMAIL='admin@admin.com' \
+        -e PGADMIN_DEFAULT_PASSWORD='root' \
+        -p 8080:80 \
+        dpage/pgadmin4
+
+
+Inorder to connect postgres server using pgAdmin, we need to make them available in same network. so, both can be connected. To do this, we need to use docker network. Once network created, use network name to run postgres server and pgadmin.
+
+    docker run -it     -e POSTGRES_USER="root"     -e POSTGRES_PASSWORD="test"     -e POSTGRES_DB="ny_taxi"     -v /Users/a616152/Documents/Personal/DataEngineering/Learning/ny_taxi/data:/var/lib/postgresql/data     -p 7001:7001  --network=pg-network --name=pg-db   postgres:13
+
+After running this, we can validate the existing db is available using pgcli.
+
+
+    docker run -it -e PGADMIN_DEFAULT_EMAIL="admin@admin.com" -e PGADMIN_DEFAULT_PASSWORD="root" -p 8080:80 --network=pg-network --name=pg-admin dpage/pgadmin4
+
+
+Once pgAdmin started, provide postgres server credentials and see if we are able to see the database and table.

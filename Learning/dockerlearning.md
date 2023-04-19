@@ -126,3 +126,17 @@ In current case, it is now accessing the postgres database that got created from
 
 	docker run -t test:pandas arg2
 The entry point in the dockerfile should be capable to handle the argument
+
+
+Docker Network
+====
+ 
+ To let more than one docker containers to interact, we need to put those in same network. This docker network helps to facilitate the same. Reference: https://docs.docker.com/engine/reference/commandline/network_create/
+
+    docker network create [OPTIONS] NETWORK
+
+in our case, just
+
+    docker network create pg-network
+
+After creating the network, we need to specify this network name as and when we start or run the docker containers. 
