@@ -53,9 +53,10 @@ Issue encountered and solved:
     This one was mainly because the server is not picking the proper port.
     Just goto *postgresql.conf* and edit the port in the file. This solves the issue.
 
+_____
 
 pgAdmin
-_____
+-- 
 
 it is a webbased GUI tool for PostgreSql.
 
