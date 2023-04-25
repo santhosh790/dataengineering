@@ -140,3 +140,14 @@ in our case, just
     docker network create pg-network
 
 After creating the network, we need to specify this network name as and when we start or run the docker containers. 
+
+Building ingestion docker:
+
+        docker build -t ingest_taxt:v001 .
+
+
+When mentioning the localhost url, it is known that docker container will not have access to the other container. We used docker network to solve this issue.
+
+As pg-network is used in postgres server container's network:
+
+    docker run -it --network=pg-network ingest_taxt:v001 root test pg-db 7001 ny_taxi yellow_taxi "https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet"

@@ -86,3 +86,9 @@ After running this, we can validate the existing db is available using pgcli.
 
 
 Once pgAdmin started, provide postgres server credentials and see if we are able to see the database and table.
+
+The ingestion script need to be created as docker file, the command to create is in dockerlearning.md.
+
+After creation, we need to run the this ingestion script container using pg-network as network as the postgres is under it.
+
+    docker run -it --network=pg-network ingest_taxt:v001 root test pg-db 7001 ny_taxi yellow_taxi "https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet"

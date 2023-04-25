@@ -19,6 +19,11 @@ pip install ipykernel
 
 python -m ipykernel install --user --name myenv --display-name "Python (myenv)"
 
+Converting the notebook into a script file:
+
+    jupyter nbconvert --to=script <filename>.ipynb
+
+This will create a python script file with <filename>.py
 
 docker run -it \
     -e POSTGRES_USER="root" \
