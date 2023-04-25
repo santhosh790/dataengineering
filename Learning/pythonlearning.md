@@ -23,4 +23,4 @@ Easy Tricks
 
 1. Simple HTTP Server at a folder:
 
-    python -m http.server
+        python -m http.server
