@@ -164,7 +164,7 @@ As pg-network is used in postgres server container's network:
     docker run -it --network=pg-network ingest_taxt:v001 root test pg-db 7001 ny_taxi yellow_taxi "https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet"
 
 Docker Compose
------
+====
 Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services. Then, with a single command, you create and start all the services from your configuration. [https://docs.docker.com/compose/]
 
 In simple terms, Compose helps it to possible for different containers work and interact together. So, Compose is a go-to tool during multi-container orchestration. The configuration files like yaml makes it easier to maintain the environmental variables.
