@@ -188,7 +188,7 @@ Steps:
     3. Define services in docker compose file:
         As we already have done step 1 and 2, going to step 3. Create file called docker-compose.yml
     4. Build, run the app created at step 3.
-        
+       
             docker compose up
         To run it in detached mode:
             docker compose up -d
