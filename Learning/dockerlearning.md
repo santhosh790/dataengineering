@@ -179,9 +179,10 @@ We can also utilize the profiling to let services take up extra params or add ne
         Docker compose is already part of Docker Desktop. 
         or to install manually, follow: https://docs.docker.com/compose/install/
 
-    Getting Started
+Getting Started
+--
         https://docs.docker.com/compose/gettingstarted/
-    Steps:
+Steps:
     1. Create application with dependencies
     2. Create Docker file to create docker image
     3. Define services in docker compose file:
