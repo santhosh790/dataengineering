@@ -79,6 +79,17 @@ The entry point in the dockerfile should be capable to handle the argument
 docker ps 
     ps - present running services
 
+
+Stopping a docker container:
+
+    docker stop <container-id>
+
+container-id can be found when we run "docker ps" command.
+
+To list down local images:
+
+        docker image ls
+
 PostGres
 -- 
 
@@ -151,3 +162,38 @@ When mentioning the localhost url, it is known that docker container will not ha
 As pg-network is used in postgres server container's network:
 
     docker run -it --network=pg-network ingest_taxt:v001 root test pg-db 7001 ny_taxi yellow_taxi "https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet"
+
+Docker Compose
+-----
+Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services. Then, with a single command, you create and start all the services from your configuration. [https://docs.docker.com/compose/]
+
+In simple terms, Compose helps it to possible for different containers work and interact together. So, Compose is a go-to tool during multi-container orchestration. The configuration files like yaml makes it easier to maintain the environmental variables.
+
+Compose v1 was written in Python and more robust Compose v2 is written in Go. 
+
+There are various ways to set environment variables: https://docs.docker.com/compose/environment-variables/set-environment-variables/
+
+We can also utilize the profiling to let services take up extra params or add new services. E.g., For an application which has Frontend, Backend and DB, pgAdmin can run only when you want to see what is in DB. i.e., only for debug scenario. Profiling will be handy at these situations: https://docs.docker.com/compose/profiles/
+
+    Installation
+        Docker compose is already part of Docker Desktop. 
+        or to install manually, follow: https://docs.docker.com/compose/install/
+
+    Getting Started
+        https://docs.docker.com/compose/gettingstarted/
+    Steps:
+    1. Create application with dependencies
+    2. Create Docker file to create docker image
+    3. Define services in docker compose file:
+        As we already have done step 1 and 2, going to step 3. Create file called docker-compose.yml
+    4. Build, run the app created at step 3.
+        
+            docker compose up
+        To run it in detached mode:
+            docker compose up -d
+
+        To stop the compose:
+            docker compose down
+
+Note: docker-compose command is from Compose v1 and docker compose implies we use Compose v2.
+        
