@@ -18,9 +18,45 @@ Main Block
     https://docs.python.org/3/library/__main__.html
 
 
-Easy Tricks
------
+Simple HTTP Server at a folder:
 
-1. Simple HTTP Server at a folder:
+    python -m http.server
 
-        python -m http.server
+DotEnv:
+----
+    https://pypi.org/project/python-dotenv/
+    Python-dotenv reads key-value pairs from a .env file and can set them as environment variables. It helps in the development of applications
+    module name: dotenv
+
+    Install: pip install python-dotenv
+
+    Usage:
+        from dotenv import load_dotenv
+
+        load_dotenv()  # take environment variables from .env.
+
+
+
+python3 ingestion_script.py \
+    --user=root \
+    --password=test \
+    --host=localhost \
+    --port=7001 \
+    --dbname=ny_taxi \
+    --table_name=yellow_taxi \
+    --url=https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet
+
+https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet
+python3 ingestion_script.py \
+    user=root \
+    password=test \
+    host=localhost \
+    port=7001 \
+    dbname=ny_taxi \
+    table_name=yellow_taxi \
+    url="https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet"
+
+
+python3 ingestion_script.py root test localhost 7001 ny_taxi yellow_taxi "https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet"
+
+docker run -it --network=pg-network ingest_taxt:v001 root test pg-db 7001 ny_taxi yellow_taxi "https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet"
